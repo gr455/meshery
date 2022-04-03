@@ -173,6 +173,7 @@ jobs:
           while [ $SECONDS -lt $end ]; do
               for i in "${!pods[@]}"
               do
+                  echo $(kubectl get pods -n default)
                   podstatus=$(kubectl get pods  -n  ${ns[i]} | grep ${pods[i]} | tr -s ' ' | cut -d " " -f 3)
                   if [ "$podstatus" != "Running" ];then
                     breakout=0
