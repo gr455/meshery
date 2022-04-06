@@ -173,7 +173,11 @@ jobs:
           while [ $SECONDS -lt $end ]; do
               for i in "${!pods[@]}"
               do
-                  kubectl get events
+                  kubectl get pod -n kube-system
+                  echo --------------------PODS--------------------------
+                  kubectl get events -n kube-system
+                  echo ---------------------EVENTS-----------------------
+
                   podstatus=$(kubectl get pods  -n  ${ns[i]} | grep ${pods[i]} | tr -s ' ' | cut -d " " -f 3)
                   if [ "$podstatus" != "Running" ];then
                     breakout=0
