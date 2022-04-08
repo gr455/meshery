@@ -47,7 +47,7 @@ require (
 	github.com/pkg/browser v0.0.0-20210706143420-7d21f8c997e2
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.12.1
-	github.com/prometheus/common v0.32.1
+	github.com/prometheus/common v0.33.0
 	github.com/qri-io/jsonschema v0.2.1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.3.0
@@ -55,7 +55,7 @@ require (
 	github.com/spf13/viper v1.10.0
 	github.com/vektah/gqlparser/v2 v2.4.1
 	github.com/vmihailenco/taskq/v3 v3.2.7
-	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
+	golang.org/x/oauth2 v0.0.0-20220223155221-ee480838109b
 	gonum.org/v1/gonum v0.11.0
 	google.golang.org/grpc v1.45.0
 	google.golang.org/protobuf v1.27.1
