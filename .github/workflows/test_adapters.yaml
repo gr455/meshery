@@ -180,7 +180,7 @@ jobs:
                   resourceinfo=$(kubectl get ${types[i]} -n ${ns[i]} | grep ${resources[i]} | tr -s ' ')
                   resourcestarted=$(echo $resourceinfo | cut -d " " -f 1)
                   resourcestatus=$(echo $resourceinfo | cut -d " " -f 3)
-                  if [[ ("${types[i]}" = "pod" && "$resourcestatus" = "Running") || ("${types[i]}" != "pod" && "$resourcestarted" != "") ]];then
+                  if [[ ("${types[i]}" = "pod" && "$resourcestatus" != "Running") || ("${types[i]}" != "pod" && "$resourcestarted" = "") ]];then
                     breakout=0
                   fi
               done
@@ -224,6 +224,7 @@ jobs:
           MESHERY_VERSION=$(curl -L -s https://github.com/meshery/meshery/releases/latest | grep "/releases/tag/" | head -1 | awk -F '"' '{print $4}' | awk -F '/' '{print $NF}' )    
           echo $(jq '.metadata."meshery-server-version" |="'$MESHERY_VERSION'"' data.json ) > data.json
           echo "exitstatus=$exitstatus" >> $GITHUB_ENV
+          cat data.json
       - name: UploadResults
         uses: actions/upload-artifact@v2
         with:
